@@ -79,11 +79,14 @@ the matched 0 K reference above:
 | | |
 |---|---|
 | cross sections, at shared grid points | agree to **~1e-6 relative** (6-7 significant figures) |
-| **fission ν̄ (NU) block** | **absent** — `JXS(2)` is `0` |
-| reactions | 47 MTs against NJOY's 84 (missing MT=649, MT=800-835) |
+| **fission ν̄ (NU) block** | ~~**absent** — `JXS(2)` is `0`~~ **CLOSED 2026-09-20 — written, 347/347 values bit-identical to NJOY2016** |
+| reactions | ~~47 MTs against NJOY's 84 (missing MT=649, MT=800-835)~~ **CLOSED 2026-09-20 — 84 MTs, set-identical to NJOY** |
 | photon production | absent — `NXS(6)` is `0` |
 
-**The missing NU block means this table cannot drive a fission eigenvalue** —
+~~**The missing NU block means this table cannot drive a fission eigenvalue** —~~
+**CORRECTED 2026-09-20 — the NU block is now written.** The paragraph below is
+kept for the record of what was true before; what remains missing is photon
+production, which neutron transport does not need. The superseded text: —
 ν̄ reads as zero, so there is no fission source. Do not hand it to OpenMC and
 expect a `k`. It is published so the comparison is reproducible, not because it
 is usable for transport.
