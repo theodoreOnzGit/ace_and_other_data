@@ -1,6 +1,8 @@
 path	embedded_ace_comment
 outram-park-njoy/endf-b-viii.0/0K/U235.ace.gz	ZA=92235 njoy-outram-park-fork v0.0.3 26cd692+ 2026-09-20
+outram-park-njoy/synthetic/0K/Z6-photonuclear.ace.gz	ZA=6012 photonuclear njoy-outram-park-fork v0.0.3 94e5640 2026-09-22
 reference-njoy/endf-b-viii.0/0K/U235.ace.gz	U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
 reference-njoy/endf-b-viii.0/293.6K/U234.ace.gz	U234 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
 reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz	U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
 reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz	U238 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
+reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz	Z6SYN photonuclear NJOY2016 2016.79 ac5adf5 2026-09-22 opb 94e5640

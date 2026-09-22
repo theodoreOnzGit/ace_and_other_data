@@ -1,8 +1,11 @@
 # ace_and_other_data
 
-ACE cross-section tables generated from the ENDF/B-VIII.0 evaluations committed
-in [`outram-park-backend`](https://github.com/theodoreOnzGit/outram-park-backend)'s
-`reference-data/endf/`, kept here because they are large and regenerable.
+ACE cross-section tables generated from the evaluated tapes committed in
+[`outram-park-backend`](https://github.com/theodoreOnzGit/outram-park-backend)'s
+`reference-data/endf/`, kept here because they are large and regenerable. Most
+come from ENDF/B-VIII.0; the photo-nuclear pair comes from a small **synthetic**
+tape committed in the same place, for the reason given under
+[`synthetic/`](#synthetic--the-photo-nuclear-tape-is-synthetic-on-purpose).
 
 **Two generators, kept in separate trees, because mixing them would defeat the
 purpose of having them:**
@@ -25,10 +28,12 @@ loose on disk still says where it came from.
 | file | embedded ACE comment |
 |---|---|
 | `outram-park-njoy/endf-b-viii.0/0K/U235.ace.gz` | `ZA=92235 njoy-outram-park-fork v0.0.3 26cd692+ 2026-09-20` |
+| `outram-park-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | `ZA=6012 photonuclear njoy-outram-park-fork v0.0.3 94e5640 2026-09-22` |
 | `reference-njoy/endf-b-viii.0/0K/U235.ace.gz` | `U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U234.ace.gz` | `U234 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz` | `U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | `U238 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
+| `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | `Z6SYN photonuclear NJOY2016 2016.79 ac5adf5 2026-09-22 opb 94e5640` |
 
 A trailing **`+`** on a commit means the tree had uncommitted changes when the
 table was built. `STAMPS.tsv` is this table, machine-readable, read back out of
@@ -56,6 +61,7 @@ gunzip -c reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz > U235.ace
 | `reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 129.6 MB | 22.0 MB |
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | U238 | 9237 | `n-092_U_238.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 120.7 MB | 18.9 MB |
 | `reference-njoy/endf-b-viii.0/0K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 0K | RECONR+ACER | 301.6 MB | 46.9 MB |
+| `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | Z6SYN | 600 | `photonuc-synthetic-Z6.endf` | 0K | ACER (`iopt=5`) | 556.8 kB | 44.2 kB |
 
 ### The two temperatures are not interchangeable
 
@@ -67,14 +73,34 @@ gunzip -c reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz > U235.ace
   broadened one would confound Doppler broadening, probability tables and any
   genuine ACER difference at once. **Not for transport.**
 
+## `synthetic/` — the photo-nuclear tape is synthetic on purpose
+
+`Z6-photonuclear` is **not** an evaluation. It is a hand-built NSUB=0 tape
+(MAT 600, ZA 6012, AWR 11.8969, MF=3/MT=5 and MF=6/MT=5 with four emitted
+particles) whose generator is committed next to it as
+`reference-data/endf/photonuc-synthetic-Z6.generator.py`. Nothing in it should
+be read as carbon physics, and no result from it is a physics result.
+
+It exists because the IAEA photo-nuclear sub-library (`www-nds.iaea.org`) is not
+reachable from this project's build environment, so there was no real `NSUB=0`
+tape to verify `acer iopt = 5` against. A synthetic tape that *exercises the
+format* is enough for that job: both codes read the same bytes, so any
+disagreement is a code disagreement. What it cannot do is tell you the port
+handles evaluation features this tape does not contain — those are listed as
+refusals in the port itself (`ielas = 1`, `LANG = 2`, `NA > 0`, `ND > 0`,
+`LCT /= 1`, recoil subsections, MF=4/MF=5, `LAW = 2`/`LAW = 4`, MT=18 nubar),
+and they are untested, not verified.
+
 ## `outram-park-njoy/` — this project's Rust port
 
 | file | nuclide | MAT | source tape | T | deck | raw | gz |
 |---|---|---|---|---|---|---|---|
 | `outram-park-njoy/endf-b-viii.0/0K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 0K | RECONR+ACER | 241.6 MB | 11.4 MB |
+| `outram-park-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | Z6SYN | 600 | `photonuc-synthetic-Z6.endf` | 0K | ACER (`iopt=5`) | 556.8 kB | 44.2 kB |
 
-**This table is incomplete, and the gaps are measured, not guessed.** Against
-the matched 0 K reference above:
+### The U-235 table is incomplete, and the gaps are measured, not guessed
+
+Against the matched 0 K reference above:
 
 | | |
 |---|---|
@@ -95,15 +121,32 @@ Full record:
 `crates/outram-mc-libs/verification_and_validation/openmc_godiva_cross_code/ace_pipeline.md`
 in `outram-park-backend`.
 
+### The photo-nuclear pair is byte-identical below the comment line
+
+The two `synthetic/0K/Z6-photonuclear.ace.gz` files differ in **one line** —
+line 2, the 70-character `hk` comment, which is where each generator stamps
+itself. Every other byte of all 556 781 is the same, 27 453 XSS words, worst
+value difference `1.0e-13`. Check it yourself:
+
+```bash
+diff <(gunzip -c reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz | tail -n +3) \
+     <(gunzip -c outram-park-njoy/synthetic/0K/Z6-photonuclear.ace.gz | tail -n +3)
+```
+
+That is the whole point of keeping both: the pair is the evidence, and the day
+it stops being byte-identical the diff says so. Full record:
+`crates/njoy-outram-park-fork/verification_and_validation/acer_photonuclear_vs_njoy2016.md`
+in `outram-park-backend`.
+
 ## Provenance
 
 | | |
 |---|---|
-| Generated | 2026-09-20 UTC |
+| Generated | 2026-09-20 UTC (uranium), 2026-09-22 UTC (photo-nuclear) |
 | NJOY2016 | `github.com/njoy/NJOY2016` tag **2016.79**, commit `ac5adf5f33d893e42f2eed7fb286b0d51c7580da` |
-| Port | `njoy-outram-park-fork` v0.0.3, `outram-park-backend` @ `26cd692` |
-| Evaluations | ENDF/B-VIII.0, from `outram-park-backend/reference-data/endf/` |
-| Decks | `make_ace.sh` (293.6 K) and `make_ace_0k.sh` (0 K), committed in `outram-park-backend` under `crates/outram-mc-libs/verification_and_validation/openmc_godiva_cross_code/` |
+| Port | `njoy-outram-park-fork` v0.0.3, `outram-park-backend` @ `26cd692` (uranium) and `94e5640` (photo-nuclear) |
+| Evaluations | ENDF/B-VIII.0, from `outram-park-backend/reference-data/endf/`; the photo-nuclear tape is synthetic, see above |
+| Decks | `make_ace.sh` (293.6 K) and `make_ace_0k.sh` (0 K), committed in `outram-park-backend` under `crates/outram-mc-libs/verification_and_validation/openmc_godiva_cross_code/`; the photo-nuclear deck is a four-line `acer` card recorded in `crates/njoy-outram-park-fork/verification_and_validation/acer_photonuclear_vs_njoy2016.md` |
 
 `MANIFEST.tsv` carries the SHA-256 of each **uncompressed** table, so a
 decompressed file can be checked against what was generated.
@@ -116,5 +159,6 @@ ACE, so convert with `ace2hdf5.py` from the same directory.
 ## Data policy
 
 Derived from ENDF/B-VIII.0, an openly published evaluated nuclear data library,
-by NJOY2016 (open source) and this project's own port. No proprietary,
-restricted or export-controlled content.
+by NJOY2016 (open source) and this project's own port. The photo-nuclear pair is
+derived from a synthetic tape written by this project, from no evaluation at
+all. No proprietary, restricted or export-controlled content.
