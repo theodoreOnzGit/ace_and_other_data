@@ -162,3 +162,29 @@ Derived from ENDF/B-VIII.0, an openly published evaluated nuclear data library,
 by NJOY2016 (open source) and this project's own port. The photo-nuclear pair is
 derived from a synthetic tape written by this project, from no evaluation at
 all. No proprietary, restricted or export-controlled content.
+
+## `endf/`: evaluated tapes too large for `outram-park-backend` (added 2026-10-01)
+
+Raw ENDF-6 evaluations that the backend's HTR-10 model needs but that are too
+big to commit beside the other tapes in its `reference-data/endf/`. They are
+kept **uncompressed**, so `Nuclide::from_endf_file` reads them directly with no
+decompression step.
+
+| file | nuclide | MAT | size | resonance format (MF2/MT151) |
+|---|---|---|---|---|
+| `endf/endf-b-viii.0/n-028_Ni_058-ENDF8.0.endf` | Ni-58 | 2825 | 18.0 MB | LRU=1, LRF=3 (Reich-Moore), EH 812 keV |
+| `endf/endf-b-viii.0/n-028_Ni_060-ENDF8.0.endf` | Ni-60 | 2831 | 17.3 MB | LRU=1, LRF=3, EH 800 keV |
+| `endf/endf-b-viii.0/n-028_Ni_061-ENDF8.0.endf` | Ni-61 | 2834 | 3.9 MB | LRU=1, LRF=2 (MLBW), EH 57 keV |
+| `endf/endf-b-viii.0/n-028_Ni_062-ENDF8.0.endf` | Ni-62 | 2837 | 3.1 MB | LRU=1, LRF=2, EH 600 keV |
+| `endf/endf-b-viii.0/n-028_Ni_064-ENDF8.0.endf` | Ni-64 | 2843 | 2.9 MB | LRU=1, LRF=2, EH 553 keV |
+
+- **What uses them:** the HTR-10 control-rod sleeve steel (stainless steel,
+  ~9 at.% nickel), in `outram-park-backend`'s `nee_soon` examples.
+- **Provenance:** ENDF/B-VIII.0, NNDC (Brookhaven), `ENDF-B-VIII.0.zip`,
+  directory `neutrons/`. The tapes were copied unmodified from the
+  maintainer's local copy of that archive on 2026-10-01; tape revision line
+  `$Rev:: 1451 $ $Date:: 2018-01-17`.
+- **Licence:** ENDF/B is public, openly published evaluated data, the same
+  basis as every tape in the backend's `reference-data/endf/`.
+- **Integrity:** `endf/MANIFEST.tsv` records the byte size and SHA-256 of each
+  file.
