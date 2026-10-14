@@ -6,3 +6,6 @@ reference-njoy/endf-b-viii.0/293.6K/U234.ace.gz	U234 E8.0 NJOY2016 2016.79 ac5ad
 reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz	U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
 reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz	U238 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692
 reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz	Z6SYN photonuclear NJOY2016 2016.79 ac5adf5 2026-09-22 opb 94e5640
+reference-njoy/endf-b-viii.0/thermal/Al27_tsl_20K_16b_iwt2.ace.gz	Al27 tsl iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3
+reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt0.ace.gz	HH2O 64b iwt0 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3
+reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt2.ace.gz	HH2O 64b iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3

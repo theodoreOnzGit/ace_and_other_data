@@ -34,6 +34,9 @@ loose on disk still says where it came from.
 | `reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz` | `U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | `U238 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | `Z6SYN photonuclear NJOY2016 2016.79 ac5adf5 2026-09-22 opb 94e5640` |
+| `reference-njoy/endf-b-viii.0/thermal/Al27_tsl_20K_16b_iwt2.ace.gz` | `Al27 tsl iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3` |
+| `reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt0.ace.gz` | `HH2O 64b iwt0 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3` |
+| `reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt2.ace.gz` | `HH2O 64b iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3` |
 
 A trailing **`+`** on a commit means the tree had uncommitted changes when the
 table was built. `STAMPS.tsv` is this table, machine-readable, read back out of
@@ -62,6 +65,9 @@ gunzip -c reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz > U235.ace
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | U238 | 9237 | `n-092_U_238.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 120.7 MB | 18.9 MB |
 | `reference-njoy/endf-b-viii.0/0K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 0K | RECONR+ACER | 301.6 MB | 46.9 MB |
 | `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | Z6SYN | 600 | `photonuc-synthetic-Z6.endf` | 0K | ACER (`iopt=5`) | 556.8 kB | 44.2 kB |
+| `reference-njoy/endf-b-viii.0/thermal/Al27_tsl_20K_16b_iwt2.ace.gz` | Al-27 tsl | 53 | `tsl-013_Al_027-ENDF8.0.endf` (incident `n-013_Al_027`) | 20K | THERMR tol 0.001 + ACER `iwt=2`, 16 bins | 11.9 MB | 3.1 MB |
+| `reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt0.ace.gz` | H in H2O | 1 | `tsl-HinH2O.endf` (incident `n-001_H_001`) | 283.6K | THERMR tol 0.001, natom 2 + ACER `iwt=0`, 64 bins | 2.3 MB | 0.86 MB |
+| `reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt2.ace.gz` | H in H2O | 1 | `tsl-HinH2O.endf` (incident `n-001_H_001`) | 283.6K | THERMR tol 0.001, natom 2 + ACER `iwt=2`, 64 bins | 24.8 MB | 6.6 MB |
 
 ### The two temperatures are not interchangeable
 
@@ -188,3 +194,8 @@ decompression step.
   basis as every tape in the backend's `reference-data/endf/`.
 - **Integrity:** `endf/MANIFEST.tsv` records the byte size and SHA-256 of each
   file.
+
+
+## `reference-njoy/endf-b-viii.0/thermal/` — thermal S(α,β) tables (2026-10-14)
+
+NJOY2016 thermal tables too large for `outram-park-backend`'s own `reference-data/acer/`, the oracle for its word-for-word thermal gate (gh #865/#866). Each `.njoy` beside its table is the deck that made it (tape20 = incident ENDF, tape21 = thermal ENDF, both from `outram-park-backend/reference-data/endf/`). Text units throughout, as OpenMC's `make_ace_thermal` writes its decks.
