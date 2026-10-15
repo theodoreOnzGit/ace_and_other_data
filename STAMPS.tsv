@@ -9,3 +9,4 @@ reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz	Z6SYN photonuclear NJOY2016 2
 reference-njoy/endf-b-viii.0/thermal/Al27_tsl_20K_16b_iwt2.ace.gz	Al27 tsl iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3
 reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt0.ace.gz	HH2O 64b iwt0 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3
 reference-njoy/endf-b-viii.0/thermal/HinH2O_283.6K_64b_iwt2.ace.gz	HH2O 64b iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3
+reference-njoy/endf-b-viii.0/293.6K/U236.ace.gz	U236 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-15 opb 6e3cfd9

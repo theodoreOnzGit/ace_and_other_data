@@ -32,6 +32,7 @@ loose on disk still says where it came from.
 | `reference-njoy/endf-b-viii.0/0K/U235.ace.gz` | `U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U234.ace.gz` | `U234 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz` | `U235 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
+| `reference-njoy/endf-b-viii.0/293.6K/U236.ace.gz` | `U236 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-15 opb 6e3cfd9` |
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | `U238 E8.0 NJOY2016 2016.79 ac5adf5 2026-09-20 opb 26cd692` |
 | `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | `Z6SYN photonuclear NJOY2016 2016.79 ac5adf5 2026-09-22 opb 94e5640` |
 | `reference-njoy/endf-b-viii.0/thermal/Al27_tsl_20K_16b_iwt2.ace.gz` | `Al27 tsl iwt2 E8.0 NJOY2016 2016.79 ac5adf5 2026-10-14 opb ab526668a3` |
@@ -62,6 +63,7 @@ gunzip -c reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz > U235.ace
 |---|---|---|---|---|---|---|---|
 | `reference-njoy/endf-b-viii.0/293.6K/U234.ace.gz` | U234 | 9225 | `n-092_U_234-ENDF8.0.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 8.7 MB | 1.8 MB |
 | `reference-njoy/endf-b-viii.0/293.6K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 129.6 MB | 22.0 MB |
+| `reference-njoy/endf-b-viii.0/293.6K/U236.ace.gz` | U236 | 9231 | `n-092_U_236-ENDF8.0.endf` | 293.6K | RECONR+BROADR+PURR+ACER (deck: `U236.njoy` beside it) | 7.7 MB | 1.6 MB |
 | `reference-njoy/endf-b-viii.0/293.6K/U238.ace.gz` | U238 | 9237 | `n-092_U_238.endf` | 293.6K | RECONR+BROADR+PURR+ACER | 120.7 MB | 18.9 MB |
 | `reference-njoy/endf-b-viii.0/0K/U235.ace.gz` | U235 | 9228 | `n-092_U_235-ENDF8.0.endf` | 0K | RECONR+ACER | 301.6 MB | 46.9 MB |
 | `reference-njoy/synthetic/0K/Z6-photonuclear.ace.gz` | Z6SYN | 600 | `photonuc-synthetic-Z6.endf` | 0K | ACER (`iopt=5`) | 556.8 kB | 44.2 kB |
@@ -148,9 +150,9 @@ in `outram-park-backend`.
 
 | | |
 |---|---|
-| Generated | 2026-09-20 UTC (uranium), 2026-09-22 UTC (photo-nuclear) |
+| Generated | 2026-09-20 UTC (uranium; U-236 2026-10-15), 2026-09-22 UTC (photo-nuclear) |
 | NJOY2016 | `github.com/njoy/NJOY2016` tag **2016.79**, commit `ac5adf5f33d893e42f2eed7fb286b0d51c7580da` |
-| Port | `njoy-outram-park-fork` v0.0.3, `outram-park-backend` @ `26cd692` (uranium) and `94e5640` (photo-nuclear) |
+| Port | `njoy-outram-park-fork` v0.0.3, `outram-park-backend` @ `26cd692` (uranium; U-236 @ `6e3cfd9`, 2026-10-15) and `94e5640` (photo-nuclear) |
 | Evaluations | ENDF/B-VIII.0, from `outram-park-backend/reference-data/endf/`; the photo-nuclear tape is synthetic, see above |
 | Decks | `make_ace.sh` (293.6 K) and `make_ace_0k.sh` (0 K), committed in `outram-park-backend` under `crates/outram-mc-libs/verification_and_validation/openmc_godiva_cross_code/`; the photo-nuclear deck is a four-line `acer` card recorded in `crates/njoy-outram-park-fork/verification_and_validation/acer_photonuclear_vs_njoy2016.md` |
 
