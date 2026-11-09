@@ -213,6 +213,19 @@ Same provenance as the nickel tapes: ENDF/B-VIII.0, NNDC
 local copy on 2026-11-09. The maintainer's rule since that date: new nuclear
 data for `outram-park-backend` goes in this repository, not that one.
 
+
+**Added 2026-11-09:** the seven stable molybdenum isotopes, for INOR-8 (Hastelloy N, 16.5 wt % Mo) in `outram-park-backend`'s MSRE full-core model (gh:#1128). They replace that model's beta Mo-95 stand-in. Same provenance as the tapes above: ENDF/B-VIII.0, NNDC `ENDF-B-VIII.0.zip`, `neutrons/`, copied unmodified from the maintainer's local copy on 2026-11-09.
+
+| file | nuclide | MAT | size |
+|---|---|---|---|
+| `endf/endf-b-viii.0/n-042_Mo_092-ENDF8.0.endf` | Mo-92 | 4225 | 0.57 MB |
+| `endf/endf-b-viii.0/n-042_Mo_094-ENDF8.0.endf` | Mo-94 | 4231 | 0.63 MB |
+| `endf/endf-b-viii.0/n-042_Mo_095-ENDF8.0.endf` | Mo-95 | 4234 | 1.55 MB |
+| `endf/endf-b-viii.0/n-042_Mo_096-ENDF8.0.endf` | Mo-96 | 4237 | 0.60 MB |
+| `endf/endf-b-viii.0/n-042_Mo_097-ENDF8.0.endf` | Mo-97 | 4240 | 0.67 MB |
+| `endf/endf-b-viii.0/n-042_Mo_098-ENDF8.0.endf` | Mo-98 | 4243 | 0.59 MB |
+| `endf/endf-b-viii.0/n-042_Mo_100-ENDF8.0.endf` | Mo-100 | 4249 | 0.34 MB |
+
 ## `reference-njoy/endf-b-viii.0/900K/`: the MSRE salt nuclides at 900 K (2026-11-09)
 
 NJOY2016 `ac5adf5` (2016.79) outputs for Li-6, Li-7, Be-9, F-19 and
