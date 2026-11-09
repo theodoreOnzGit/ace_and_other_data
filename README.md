@@ -238,3 +238,7 @@ convert MF=6 LAW=7.
 ## `reference-njoy/endf-b-viii.0/thermal/` — thermal S(α,β) tables (2026-10-14)
 
 NJOY2016 thermal tables too large for `outram-park-backend`'s own `reference-data/acer/`, the oracle for its word-for-word thermal gate (gh #865/#866). Each `.njoy` beside its table is the deck that made it (tape20 = incident ENDF, tape21 = thermal ENDF, both from `outram-park-backend/reference-data/endf/`). Text units throughout, as OpenMC's `make_ace_thermal` writes its decks.
+
+## `reference-njoy/endf-b-viii.0/911.483K/`: U-235 and U-238 at the MSRE N-1 temperature (2026-11-09)
+
+NJOY2016 ac5adf5, same deck as `900K/` (RECONR 0.001 / BROADR / PURR 20 64 / ACER) at 911.483 K (1181 °F), from the backend's `reference-data/endf/` tapes, by `make_njoy_900k.sh` with `TK=911.483`. For `outram-park-backend` gh:#1310 (URR probability-table parity); sizes and SHA-256 in `MANIFEST.tsv`.
