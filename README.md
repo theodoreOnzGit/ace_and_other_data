@@ -270,6 +270,72 @@ in this session, not copied from the maintainer's local copy.
   + 35). MAT is read from columns 67–70 of each tape's first record; the
   non-tape files carry `-` for nuclide and MAT.
 
+**Added 2026-11-17:** neutron tapes and the H-in-H2O thermal scattering law
+for OpenMC pincell depletion parity (`outram-park-backend` gh:#1626): light
+water and boron (H-1, O-16/17/18, B-10/11, He-3/4), cladding and structure
+(Fe-54/56/57/58, Cr-50/52/53/54, the ten stable Sn isotopes), fission-product
+poisons (I-135, Xe-135/136, Cs-135, Gd-156/157) and U-234/235/236/238.
+**Downloaded directly from NNDC** in this session, like the gh:#1627 tapes
+above.
+
+| file | nuclide | MAT | archive member | size | sha256 |
+|---|---|---|---|---|---|
+| `endf/endf-b-viii.0/n-001_H_001-ENDF8.0.endf` | H-1 | 125 | `ENDF-B-VIII.0_neutrons/n-001_H_001.endf` | 671 kB | `e7b76c20c1d61f2cb2621de716d324047fa1f9583bef568f643f8d98094260fb` |
+| `endf/endf-b-viii.0/n-002_He_003-ENDF8.0.endf` | He-3 | 225 | `ENDF-B-VIII.0_neutrons/n-002_He_003.endf` | 36 kB | `a29ce1ba792b18c1ee4e9565eef6a403937e426715fd58349d915559f8aa53df` |
+| `endf/endf-b-viii.0/n-002_He_004-ENDF8.0.endf` | He-4 | 228 | `ENDF-B-VIII.0_neutrons/n-002_He_004.endf` | 203 kB | `4d177a8cc8a1493516545551c2c846a6b47e3f0dcec65af8870f50579a3df09c` |
+| `endf/endf-b-viii.0/n-005_B_010-ENDF8.0.endf` | B-10 | 525 | `ENDF-B-VIII.0_neutrons/n-005_B_010.endf` | 873 kB | `7c8b32e1d35017048e6a47413127b141922d61fd703f357e90b3a59bdd0d9b7d` |
+| `endf/endf-b-viii.0/n-005_B_011-ENDF8.0.endf` | B-11 | 528 | `ENDF-B-VIII.0_neutrons/n-005_B_011.endf` | 659 kB | `50ab204e4deb625dbcd15e22961c605000a53efb1d7bcf339d29d6bba2cc270d` |
+| `endf/endf-b-viii.0/n-008_O_016-ENDF8.0.endf` | O-16 | 825 | `ENDF-B-VIII.0_neutrons/n-008_O_016.endf` | 41.9 MB | `aabef9c710c132b4e4d8028e58eff2e542d61d34b93823b5f1199649bff7f781` |
+| `endf/endf-b-viii.0/n-008_O_017-ENDF8.0.endf` | O-17 | 828 | `ENDF-B-VIII.0_neutrons/n-008_O_017.endf` | 82 kB | `0d4cb1bb6d8bf565c4867f65e3866a2833aa7908e54c7d30337ca3fed07cd641` |
+| `endf/endf-b-viii.0/n-008_O_018-ENDF8.0.endf` | O-18 | 831 | `ENDF-B-VIII.0_neutrons/n-008_O_018.endf` | 34 kB | `a46aa0709d2070671305a9c4e077ccd91ca012131b94220726f6d404155febc7` |
+| `endf/endf-b-viii.0/n-024_Cr_050-ENDF8.0.endf` | Cr-50 | 2425 | `ENDF-B-VIII.0_neutrons/n-024_Cr_050.endf` | 10.6 MB | `ad442e640e82c98d22be47b60e41820a0ff3aeb8868c38de17b8af0cd4eee739` |
+| `endf/endf-b-viii.0/n-024_Cr_052-ENDF8.0.endf` | Cr-52 | 2431 | `ENDF-B-VIII.0_neutrons/n-024_Cr_052.endf` | 10.6 MB | `c42bee3cbc9171d2fb70f3fdf409faeebfc7d2d7ea12ebfc003e78410376aa14` |
+| `endf/endf-b-viii.0/n-024_Cr_053-ENDF8.0.endf` | Cr-53 | 2434 | `ENDF-B-VIII.0_neutrons/n-024_Cr_053.endf` | 8.88 MB | `41aee5af2f3d671ea8c857fc642cf3c6e80d56976f774b11dad6316daf87bdfb` |
+| `endf/endf-b-viii.0/n-024_Cr_054-ENDF8.0.endf` | Cr-54 | 2437 | `ENDF-B-VIII.0_neutrons/n-024_Cr_054.endf` | 2.46 MB | `8cce14a7d12aacc82fbb1e0fc91c069daedf41063f02735e592fd1d3f3672a09` |
+| `endf/endf-b-viii.0/n-026_Fe_054-ENDF8.0.endf` | Fe-54 | 2625 | `ENDF-B-VIII.0_neutrons/n-026_Fe_054.endf` | 15.5 MB | `d5000c8d07900ff7e8022c55c81ce81ca5ee837a208227a90c60b22e8588cb76` |
+| `endf/endf-b-viii.0/n-026_Fe_056-ENDF8.0.endf` | Fe-56 | 2631 | `ENDF-B-VIII.0_neutrons/n-026_Fe_056.endf` | 24.2 MB | `b8bb897c76f85f7a22a989949c5c353e6b6541278b555b88be3a53102184bbae` |
+| `endf/endf-b-viii.0/n-026_Fe_057-ENDF8.0.endf` | Fe-57 | 2634 | `ENDF-B-VIII.0_neutrons/n-026_Fe_057.endf` | 13.6 MB | `cdef054c5abbda7c740266cc01632c6b90ead02ec7d856630cab6906cfc96147` |
+| `endf/endf-b-viii.0/n-026_Fe_058-ENDF8.0.endf` | Fe-58 | 2637 | `ENDF-B-VIII.0_neutrons/n-026_Fe_058.endf` | 9.28 MB | `57b574915c9f552950f93f8c9fbe8c40335d704d85209f1a299df5fa6fa2194c` |
+| `endf/endf-b-viii.0/n-050_Sn_112-ENDF8.0.endf` | Sn-112 | 5025 | `ENDF-B-VIII.0_neutrons/n-050_Sn_112.endf` | 176 kB | `4ad85313b0c83930e7af17f46f97187526a23830f86d085b8d5e0ea5360406de` |
+| `endf/endf-b-viii.0/n-050_Sn_114-ENDF8.0.endf` | Sn-114 | 5031 | `ENDF-B-VIII.0_neutrons/n-050_Sn_114.endf` | 182 kB | `585096162e32da4aaba9c4481843b11163b2ab59920538c31c7627d90edfbee5` |
+| `endf/endf-b-viii.0/n-050_Sn_115-ENDF8.0.endf` | Sn-115 | 5034 | `ENDF-B-VIII.0_neutrons/n-050_Sn_115.endf` | 160 kB | `10f33e2b0c40263ff0e59a39aaa14a105bcb30957ef749802252df87bf01f184` |
+| `endf/endf-b-viii.0/n-050_Sn_116-ENDF8.0.endf` | Sn-116 | 5037 | `ENDF-B-VIII.0_neutrons/n-050_Sn_116.endf` | 139 kB | `238dfb7f94de486056a5639b40f8f78b80d83c2ecf1ce836717835bd7f884ea8` |
+| `endf/endf-b-viii.0/n-050_Sn_117-ENDF8.0.endf` | Sn-117 | 5040 | `ENDF-B-VIII.0_neutrons/n-050_Sn_117.endf` | 152 kB | `902cee4bf76fc8d46c1d7c6c2925e61c9ed92404c8a2e91bc55345665a66e54c` |
+| `endf/endf-b-viii.0/n-050_Sn_118-ENDF8.0.endf` | Sn-118 | 5043 | `ENDF-B-VIII.0_neutrons/n-050_Sn_118.endf` | 115 kB | `d01e0932fff716558627d13e173e31e07d93ee0514ff8852690ea2d6750bbf80` |
+| `endf/endf-b-viii.0/n-050_Sn_119-ENDF8.0.endf` | Sn-119 | 5046 | `ENDF-B-VIII.0_neutrons/n-050_Sn_119.endf` | 174 kB | `522fb6d685bbcb8e546d2a04b2e576eb11b82717f21e6ed345b1424b1c243c91` |
+| `endf/endf-b-viii.0/n-050_Sn_120-ENDF8.0.endf` | Sn-120 | 5049 | `ENDF-B-VIII.0_neutrons/n-050_Sn_120.endf` | 1.51 MB | `1441513b6fa5cc1b99e79c67fa8209f5f4dc1f08605d52d48b3ac0408a406ba8` |
+| `endf/endf-b-viii.0/n-050_Sn_122-ENDF8.0.endf` | Sn-122 | 5055 | `ENDF-B-VIII.0_neutrons/n-050_Sn_122.endf` | 137 kB | `e732a3aff26db5dad2cd8279bf012d705c00a9ea093125f02aed73c37152ca41` |
+| `endf/endf-b-viii.0/n-050_Sn_124-ENDF8.0.endf` | Sn-124 | 5061 | `ENDF-B-VIII.0_neutrons/n-050_Sn_124.endf` | 165 kB | `65a1d35ee4e43cac57ffc44f9b3cd09f39468a0867ed5f7c36833937727f25d7` |
+| `endf/endf-b-viii.0/n-053_I_135-ENDF8.0.endf` | I-135 | 5349 | `ENDF-B-VIII.0_neutrons/n-053_I_135.endf` | 161 kB | `ef29411619b36742f8d443644e8f6e1809d6aba8dc04b20d1630a25a01da64b2` |
+| `endf/endf-b-viii.0/n-054_Xe_135-ENDF8.0.endf` | Xe-135 | 5458 | `ENDF-B-VIII.0_neutrons/n-054_Xe_135.endf` | 161 kB | `4e9e0847c4ed2b5ccbd3d99d55fbbe25cb7d7db4f074e34b16813a10653332f4` |
+| `endf/endf-b-viii.0/n-054_Xe_136-ENDF8.0.endf` | Xe-136 | 5461 | `ENDF-B-VIII.0_neutrons/n-054_Xe_136.endf` | 294 kB | `d02fbbb007c6270e2f1e5307342dee89b5fac3cc250b41da3db546757cc38c32` |
+| `endf/endf-b-viii.0/n-055_Cs_135-ENDF8.0.endf` | Cs-135 | 5531 | `ENDF-B-VIII.0_neutrons/n-055_Cs_135.endf` | 207 kB | `a6401c179589e2da6ee05a37e23cade4d0bd051d11a381f2c6f985b6dbe80c62` |
+| `endf/endf-b-viii.0/n-064_Gd_156-ENDF8.0.endf` | Gd-156 | 6437 | `ENDF-B-VIII.0_neutrons/n-064_Gd_156.endf` | 2.79 MB | `4c61c0ba99c51e5b326b8cffd38095ccb3749266444290e94767ce71b19ed8c6` |
+| `endf/endf-b-viii.0/n-064_Gd_157-ENDF8.0.endf` | Gd-157 | 6440 | `ENDF-B-VIII.0_neutrons/n-064_Gd_157.endf` | 3.04 MB | `3a365e591276d0304b0955b5ee07f65e335c80e73878174684b0927778c3f2bb` |
+| `endf/endf-b-viii.0/n-092_U_234-ENDF8.0.endf` | U-234 | 9225 | `ENDF-B-VIII.0_neutrons/n-092_U_234.endf` | 1.98 MB | `ab551adbe077d008d0318aed4170ea82aba5247cd756801ac22aa0d3e1c84164` |
+| `endf/endf-b-viii.0/n-092_U_235-ENDF8.0.endf` | U-235 | 9228 | `ENDF-B-VIII.0_neutrons/n-092_U_235.endf` | 36.9 MB | `199fb786ec888485a83b4de1f6fecfff2de0096479bde282e6e418153b9f3b79` |
+| `endf/endf-b-viii.0/n-092_U_236-ENDF8.0.endf` | U-236 | 9231 | `ENDF-B-VIII.0_neutrons/n-092_U_236.endf` | 1.36 MB | `ab9911c2f5f0e5f45e16b32e02cc30db266eb79ab07c9227ac7d72bd5236a513` |
+| `endf/endf-b-viii.0/n-092_U_238-ENDF8.0.endf` | U-238 | 9237 | `ENDF-B-VIII.0_neutrons/n-092_U_238.endf` | 14.9 MB | `2843e227f5cb23dc3294afe216442f42eecabfd90c2919dbf233b58da3107510` |
+| `endf/endf-b-viii.0/tsl-HinH2O-ENDF8.0.endf` | H-in-H2O | 1 | `ENDF-B-VIII.0_thermal_scatt/tsl-HinH2O.endf` | 17.4 MB | `3df6a73d8436a0654d00c989ccb427335548f4e1d7478a230023f576fcd91dd8` |
+
+- **Source:** NNDC, Brookhaven National Laboratory, ENDF/B-VIII.0 download
+  page `https://www.nndc.bnl.gov/endf-b8.0/download.html`:
+
+  | archive | URL | bytes | sha256 |
+  |---|---|---|---|
+  | `ENDF-B-VIII.0_neutrons.zip` | `https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_neutrons.zip` | 310158456 | `a1cced11710eb36690c5ad7b64d414465c5849f5428904049c864e9beca28894` |
+  | `ENDF-B-VIII.0_thermal_scatt.zip` | `https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_thermal_scatt.zip` | 61182020 | `042552d380e7fc3a1e7db948523b317ebaff260a08f5c8a786e94918e6e838f8` |
+
+  The neutrons archive re-downloaded byte-identical to the gh:#1627 record.
+- **Date accessed:** 2026-11-17 UTC.
+- **Processing:** none. Each tape is the named archive member, renamed from
+  NNDC's `n-ZZZ_Sy_AAA.endf` / `tsl-HinH2O.endf` to this directory's
+  `-ENDF8.0.endf` form; content unmodified. None of the 37 existed here
+  before, so nothing was skipped or replaced.
+- **Licence / access terms:** as for the gh:#1627 tapes above.
+- **Integrity:** one `endf/MANIFEST.tsv` row per file (37 rows; 221.7 MB in
+  all). MAT is read from columns 67–70 of each tape's first record.
+
 ## `reference-njoy/endf-b-viii.0/900K/`: the MSRE salt nuclides at 900 K (2026-11-09)
 
 NJOY2016 `ac5adf5` (2016.79) outputs for Li-6, Li-7, Be-9, F-19 and
