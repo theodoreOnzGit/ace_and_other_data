@@ -226,6 +226,50 @@ data for `outram-park-backend` goes in this repository, not that one.
 | `endf/endf-b-viii.0/n-042_Mo_098-ENDF8.0.endf` | Mo-98 | 4243 | 0.59 MB |
 | `endf/endf-b-viii.0/n-042_Mo_100-ENDF8.0.endf` | Mo-100 | 4249 | 0.34 MB |
 
+**Added 2026-11-17:** the thorium-cycle neutron tapes and the decay and
+neutron fission-yield sublibraries, for depletion-chain building
+(`outram-park-backend` gh:#1627; the port of OpenMC's `Chain.from_endf`,
+gh:#1621). Unlike the tapes above, these were **downloaded directly from NNDC**
+in this session, not copied from the maintainer's local copy.
+
+| file | nuclide | MAT | size |
+|---|---|---|---|
+| `endf/endf-b-viii.0/n-090_Th_232-ENDF8.0.endf` | Th-232 | 9040 | 12.9 MB |
+| `endf/endf-b-viii.0/n-091_Pa_233-ENDF8.0.endf` | Pa-233 | 9137 | 7.1 MB |
+| `endf/endf-b-viii.0/n-092_U_233-ENDF8.0.endf` | U-233 | 9222 | 21.2 MB |
+| `endf/endf-b-viii.0/decay/` | 3,821 decay tapes `dec-ZZZ_Sy_AAA[mN].endf`, plus the archive's `README.txt`, `CHANGELOG.txt`, `decay.list`, `decay-releaseNotes.pdf` | | 3,825 files, 65.9 MB |
+| `endf/endf-b-viii.0/nfy/` | 31 fission-yield tapes `nfy-ZZZ_Sy_AAA[mN].endf`, plus `README.txt`, `CHANGELOG.txt`, `nfy.list`, `nfy-releaseNotes.pdf` | | 35 files, 8.3 MB |
+
+- **Source:** NNDC, Brookhaven National Laboratory, ENDF/B-VIII.0 download
+  page `https://www.nndc.bnl.gov/endf-b8.0/download.html`. Archives, with the
+  size and SHA-256 of each archive as downloaded:
+
+  | archive | URL | bytes | sha256 |
+  |---|---|---|---|
+  | `ENDF-B-VIII.0_neutrons.zip` | `https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_neutrons.zip` | 310158456 | `a1cced11710eb36690c5ad7b64d414465c5849f5428904049c864e9beca28894` |
+  | `ENDF-B-VIII.0_decay.zip` | `https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_decay.zip` | 14173710 | `9087395f6d74fe35b47bb4c8b37ef53b44e67569196c933f835a53cdf8d03d5e` |
+  | `ENDF-B-VIII.0_nfy.zip` | `https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_nfy.zip` | 2922601 | `92c5371fdb21eecf4989f48828671b904186abc6386b3d7510c8fcee2ee5ffcf` |
+
+- **Date accessed:** 2026-11-17 UTC.
+- **Processing:** none. The three neutron tapes were extracted from
+  `ENDF-B-VIII.0_neutrons/` and renamed from NNDC's `n-090_Th_232.endf` form
+  to this directory's `-ENDF8.0.endf` form; content unmodified (tape revision
+  line `$Rev:: 1451 $ $Date:: 2018-01-17`). The two sublibraries are the
+  archives' `ENDF-B-VIII.0_decay/` and `ENDF-B-VIII.0_nfy/` directories,
+  unpacked unmodified, file names kept. The nfy README states that sublibrary
+  is unchanged from ENDF/B-VII.1.
+- **Licence / access terms:** ENDF/B-VIII.0 is openly published evaluated
+  nuclear data, distributed publicly and without registration by NNDC (a US
+  DOE user facility); the same basis as every other tape here and in the
+  backend's `reference-data/endf/`. Public, openly licensed data within
+  `DATA_POLICY.md`'s scope; no proprietary, restricted or export-controlled
+  content. Cite D.A. Brown et al., "ENDF/B-VIII.0: The 8th Major Release of
+  the Nuclear Reaction Data Library…", Nucl. Data Sheets 148 (2018) 1,
+  doi:10.1016/j.nds.2018.02.001.
+- **Integrity:** one `endf/MANIFEST.tsv` row per file (3,863 rows: 3 + 3,825
+  + 35). MAT is read from columns 67–70 of each tape's first record; the
+  non-tape files carry `-` for nuclide and MAT.
+
 ## `reference-njoy/endf-b-viii.0/900K/`: the MSRE salt nuclides at 900 K (2026-11-09)
 
 NJOY2016 `ac5adf5` (2016.79) outputs for Li-6, Li-7, Be-9, F-19 and
