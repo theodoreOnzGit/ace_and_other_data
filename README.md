@@ -336,6 +336,25 @@ above.
 - **Integrity:** one `endf/MANIFEST.tsv` row per file (37 rows; 221.7 MB in
   all). MAT is read from columns 67–70 of each tape's first record.
 
+**Added 2026-11-18:** the remaining stable gadolinium isotopes (Gd-152, 154,
+155, 158, 160), completing natural Gd with the Gd-156/157 tapes above, for the
+MSRE N-1 control-rod nuclides in `outram-park-backend`
+(`vv::msre_n1::ROD_NUCLIDES`). Downloaded directly from NNDC: members of the
+same `ENDF-B-VIII.0_neutrons.zip`
+(`https://www.nndc.bnl.gov/endf-b8.0/zips/ENDF-B-VIII.0_neutrons.zip`,
+310158456 bytes, sha256
+`a1cced11710eb36690c5ad7b64d414465c5849f5428904049c864e9beca28894`, verified
+again on 2026-11-18). Renamed to the `-ENDF8.0.endf` form, content unmodified;
+licence as above; one `endf/MANIFEST.tsv` row per file.
+
+| file | nuclide | MAT | archive member | size | sha256 |
+|---|---|---|---|---|---|
+| `endf/endf-b-viii.0/n-064_Gd_152-ENDF8.0.endf` | Gd-152 | 6425 | `ENDF-B-VIII.0_neutrons/n-064_Gd_152.endf` | 3.00 MB | `3fff188ff8bf82ae6ecf46f8b735dc9c3f7b736c408422b07929381faac498de` |
+| `endf/endf-b-viii.0/n-064_Gd_154-ENDF8.0.endf` | Gd-154 | 6431 | `ENDF-B-VIII.0_neutrons/n-064_Gd_154.endf` | 4.93 MB | `7dcafcc6a810130990d2d5f58ab700f34eae18a9149b40c1eebf26acccbca739` |
+| `endf/endf-b-viii.0/n-064_Gd_155-ENDF8.0.endf` | Gd-155 | 6434 | `ENDF-B-VIII.0_neutrons/n-064_Gd_155.endf` | 2.55 MB | `453b2ad3711f3be62ad2c6c54d493dd9487a58ec21ea6d55e3efc0961460b43b` |
+| `endf/endf-b-viii.0/n-064_Gd_158-ENDF8.0.endf` | Gd-158 | 6443 | `ENDF-B-VIII.0_neutrons/n-064_Gd_158.endf` | 2.44 MB | `a91e96a9aff91587b05033a979049743a89ac67df73064cf22ab3c5019d43635` |
+| `endf/endf-b-viii.0/n-064_Gd_160-ENDF8.0.endf` | Gd-160 | 6449 | `ENDF-B-VIII.0_neutrons/n-064_Gd_160.endf` | 2.67 MB | `388edd8854000dba556fcf2c090762478eaea0b6a11ad07375001a034b678892` |
+
 ## `reference-njoy/endf-b-viii.0/900K/`: the MSRE salt nuclides at 900 K (2026-11-09)
 
 NJOY2016 `ac5adf5` (2016.79) outputs for Li-6, Li-7, Be-9, F-19 and
